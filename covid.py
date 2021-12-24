@@ -9,8 +9,8 @@ model = svm.SVC(kernel='linear')
 scaler = StandardScaler()
 def trainData():    
     covid_data = pd.read_csv('Covid Dataset.csv')
-    X=covid.drop(['COVID19'], axis = 1)
-    Y=covid['COVID19']
+    X=covid_data.drop(['COVID19'], axis = 1)
+    Y=covid_data['COVID19']
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3)
     scaler.fit(X_train)
     X_train = scaler.transform(X_train)
